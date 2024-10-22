@@ -1,4 +1,0 @@
-repository "Sprites_FDV@alu0101311135@cloud"
-  path "/"
-    br "/main"
-    co "/main"
