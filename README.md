@@ -12,11 +12,17 @@ En está primera actividad añadí al proyecto el personaje que aparece en la Fi
 
 ## Actividad 2
 
+Se crea un objeto 2D que representa al personaje y usando la pestaña ```animation``` se añade una nueva animación. Está animación se llama **Walk Down** y se van añadiendo los diferentes sprites que se van a ir cambiando a los pocos segundo para simular el movimiento del personaje.
+
 ![alt text](images/2.gif)
 
 *Figura 2: Ejecución de la animación "Walk Down"*
 
 ## Actividad 3
+
+En está actividad se creo el siguiente script para que el jugador pueda mover al personaje de izquierda a derecha. 
+
+Cuando el jugador presiona la tecla ```A``` el personaje se mueve a la izquierda y cuando el jugador presiona la tecla ```D``` el personaje se mueve a la derecha.
 
 ```cs
 public class PlayerMovement : MonoBehaviour
@@ -53,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
 *Figura 4: Movimiento del jugador sin animación*
 
 ## Actividad 4
+
+El personaje por defecto no puede girar el sprite cuando se mueve a la izquierda o a la derecha.
+
+Para poder girar el sprite se obtiene el componente ```spriteRenderer``` y usando la propiedad **FlipX** se puede controlar el giro del sprite dependiendo hacia donde se mueve.
 
 ```cs
 public class PlayerMovement : MonoBehaviour
@@ -97,6 +107,8 @@ public class PlayerMovement : MonoBehaviour
 
 ## Actividad 5
 
+En está actividad se utiliza el componente ```Animator``` y la propiedad **setBool()** para poder activar y desactivar la animación usando un condicional u otro tipo de evento.
+
 ```cs
 public class PlayerMovement : MonoBehaviour
 {
@@ -132,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     private void Movement()
     {
         float x = Input.GetAxis("Horizontal");
+
         if (x < 0 || x > 0)
             animator.SetBool("Walk", true);
         else
@@ -167,6 +180,8 @@ public class PlayerMovement : MonoBehaviour
     }
 }
 ```
+
+Para activar la animación de baile después de una cierta distancia recorrida hice lo siguiente. Cree la función ```CalculateDistanceTraveled()``` para calcular la distancia que ha recorrido el jugador y si se alcanza cierta distancia se desactiva la animación de caminar para activar la animación de baile.
 
 ![alt text](images/5.gif)
 
